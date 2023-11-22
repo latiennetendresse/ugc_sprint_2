@@ -1,0 +1,56 @@
+
+[mypy]
+mypy_path = "etl"
+
+[tool.poetry]
+name = "ugh-sprint-2"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pre-commit = "^3.5.0"
+mypy = "^1.6.1"
+pylint = "^3.0.2"
+black = "^23.10.1"
+loguru = "^0.7.2"
+wemake-python-styleguide = "^0.18.0"
+pydantic = { version = "^2.4.2", extras = ["email"] }
+motor = "^3.3.1"
+fastapi = "^0.104.1"
+pyjwt = "^2.8.0"
+uvicorn = "^0.24.0.post1"
+aiohttp = "3.8.6"
+aiokafka = "0.8.1"
+pydantic-settings = "2.0.3"
+python-multipart = "0.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+ignore_missing_imports = true
+exclude = [ "__init__.py"]
+
+[tool.pylint]
+max-line-length = 120
+disable = [
+    'C0114', # missing-module-docstring
+    'C0115', # missing-class-docstring
+    'C0116', # missing-function-docstring
+    'E0401', # import-error
+    'E0611', # no-name-in-module
+    'R0903', # too-few-public-methods)
+]
+ignore-paths = [
+"^logger.py"
+]
+
+[tool.flake8]
+max-returns = 2
+max-arguments = 4
+max-line-length = 120
